@@ -1,1 +1,5 @@
-campeones
+<ul>
+    {% for campeon in campeones %}
+        <li><a href="{% url 'campeon_detail' campeon.id %}">{{ campeon.nombre }}</a></li>
+    {% endfor %}
+</ul>

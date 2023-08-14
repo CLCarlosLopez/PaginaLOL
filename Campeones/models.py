@@ -6,3 +6,6 @@ class Campeones(models.Model):
     descripcion = models.TextField()
     imagenes = models.ImageField(upload_to="Campeones_img/images")
     date = models.DateField(datetime.date.today)
+    
+    def __str__(self):
+        return self.nombre
