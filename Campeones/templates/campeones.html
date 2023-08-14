@@ -1,5 +1,20 @@
-<ul>
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="row">
     {% for campeon in campeones %}
-        <li><a href="{% url 'campeon_detail' campeon.id %}">{{ campeon.nombre }}</a></li>
+    <div class="col-md-3">
+        <div class="card" style="width: 18rem;">
+            <img src="{{ campeon.imagenes.url }}" class="card-img-top" alt="{{ campeon.nombre }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ campeon.nombre }}</h5>
+                <p class="card-text">{{campeon.descripcion|truncatechars:100}}</p>
+                <a href="{% url 'campeon_detail' campeon.id %}" class="btn btn-primary">Info Champ</a>
+            </div>
+        </div>
+    </div>
     {% endfor %}
-</ul>
+</div>
+
+{% endblock %}
